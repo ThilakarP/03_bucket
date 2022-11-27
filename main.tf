@@ -26,8 +26,8 @@ resource "aws_s3_bucket" "firstbucket" {
   bucket = "tfs-bucket"
 }
 */
-output "public_ip" {
-  value =aws_instance.InsThilak03.public_ip
+output "private_ip" {
+  value =aws_instance.InsThilak03.private_ip
 }
 
  
