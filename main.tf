@@ -33,7 +33,7 @@ resource "aws_instance" "InsThilak03" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "Myserver for logs"
+    Name = "Myserver via github actions"
   }
 }
 
