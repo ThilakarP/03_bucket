@@ -29,7 +29,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "InstanceForIAM" {
-  ami           = "ami-0b0dcb5067f052a63"
+  ami           = "ami-094125af156557ca2"
   instance_type = "t2.micro"
 
   tags = {
@@ -38,8 +38,8 @@ resource "aws_instance" "InstanceForIAM" {
 }
 
 
-resource "aws_s3_bucket" "firstbucket" {
-  bucket = "iam-bucket"
+resource "aws_s3_bucket" "secondbucket" {
+  bucket = "thilak-bucket-7587587845"
   
   
     tags = {
