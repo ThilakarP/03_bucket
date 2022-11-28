@@ -1,18 +1,16 @@
 terraform {
+
+  backend "remote" {
+    organization = "akshar"
+    workspaces {
+      name = "gh-actions-api-demo"
+    }
+  }
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
       version = "~>4.0"
-    }
-  }
-
-  backend "remote" {
-    # The name of your Terraform Cloud organization.
-    organization = "akshar"
-
-    # The name of the Terraform Cloud workspace to store Terraform state files in.
-    workspaces {
-      name = "gh-actions-api-demo"
     }
   }
 }
@@ -26,16 +24,15 @@ resource "null_resource" "example" {
 
 
 provider "aws" {
-    profile="default"
-    region="us-east-1"
-  
+  region  = "us-east-1"
+
 }
 
 resource "aws_instance" "InsThilak03" {
-  ami                    = "ami-0b0dcb5067f052a63"
-  instance_type          = "t2.micro"
+  ami           = "ami-0b0dcb5067f052a63"
+  instance_type = "t2.micro"
 
-   tags = {
+  tags = {
     Name = "Myserver for logs"
   }
 }
@@ -46,10 +43,10 @@ resource "aws_s3_bucket" "firstbucket" {
 }
 */
 output "private_ip" {
-  value =aws_instance.InsThilak03.private_ip
+  value = aws_instance.InsThilak03.private_ip
 }
 
- 
+
 
 /*
 resource "aws_s3_bucket" "b" {
