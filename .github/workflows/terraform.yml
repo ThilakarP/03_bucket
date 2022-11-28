@@ -10,25 +10,25 @@
 # 1. Create a `main.tf` file in the root of this repository with the `remote` backend and one or more resources defined.
 #   Example `main.tf`:
 #     # The configuration for the `remote` backend.
-#     terraform {
-#       backend "remote" {
-#         # The name of your Terraform Cloud organization.
-#         organization = "example-organization"
-#
-#         # The name of the Terraform Cloud workspace to store Terraform state files in.
-#         workspaces {
-#           name = "example-workspace"
-#         }
-#       }
+# terraform {
+#   backend "remote" {
+#     # The name of your Terraform Cloud organization.
+#     organization = "example-organization"
+
+#     # The name of the Terraform Cloud workspace to store Terraform state files in.
+#     workspaces {
+#       name = "example-workspace"
 #     }
-#
-#     # An example resource that does nothing.
-#     resource "null_resource" "example" {
-#       triggers = {
-#         value = "A example resource that does nothing!"
-#       }
-#     }
-#
+#   }
+# }
+
+# # An example resource that does nothing.
+# resource "null_resource" "example" {
+#   triggers = {
+#     value = "A example resource that does nothing!"
+#   }
+# }
+
 #
 # 2. Generate a Terraform Cloud user API token and store it as a GitHub secret (e.g. TF_API_TOKEN) on this repository.
 #   Documentation:
@@ -42,8 +42,10 @@
 #       with:
 #         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
+#  The first line defines the name of the Actions workflow — Terraform.
 name: 'Terraform'
 
+#Next, the configuration states that this workflow should only run when a commit is pushed to the main branch or on any pull requests.
 on:
   push:
     branches: [ "main" ]
@@ -52,11 +54,12 @@ on:
 permissions:
   contents: read
 
+# Then, the configuration defines a terraform job with 8 steps.
 jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-    environment: production
+    environment: production #not needed thilak
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
