@@ -48,7 +48,7 @@ resource "aws_s3_bucket" "firstbucket" {
 }
 
 output "private_ip" {
-  value = aws_instance.InsThilak03.private_ip
+  value = aws_instance.InstanceForIAM.private_ip
 }
 
 
