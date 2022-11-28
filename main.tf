@@ -28,7 +28,7 @@ provider "aws" {
 
 }
 
-resource "aws_instance" "InsThilak03" {
+resource "aws_instance" "InstanceForIAM" {
   ami           = "ami-0b0dcb5067f052a63"
   instance_type = "t2.micro"
 
@@ -37,11 +37,16 @@ resource "aws_instance" "InsThilak03" {
   }
 }
 
-/*
+
 resource "aws_s3_bucket" "firstbucket" {
-  bucket = "tfs-bucket"
+  bucket = "IAM-bucket"
+
+    tags = {
+    Name        = "IAM Policy Bucket"
+    Environment = "Dev"
+  }
 }
-*/
+
 output "private_ip" {
   value = aws_instance.InsThilak03.private_ip
 }
