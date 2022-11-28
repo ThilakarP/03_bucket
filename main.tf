@@ -40,7 +40,8 @@ resource "aws_instance" "InstanceForIAM" {
 
 resource "aws_s3_bucket" "firstbucket" {
   bucket = "iam-bucket"
-
+  
+  
     tags = {
     Name        = "IAM Policy Bucket"
     Environment = "Dev"
