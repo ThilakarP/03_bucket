@@ -16,8 +16,8 @@ resource "aws_iam_group" "ec2-container-registry-poweruser-group" {
 resource "aws_iam_group_membership" "assignment" {
   name = "assignment"
   users = [
-    aws_iam_user.user01.name,
-    aws_iam_user.user02.name
+    aws_iam_user.user00001.name,
+    aws_iam_user.user00002.name
   ]
   group = aws_iam_group.ec2-container-registry-poweruser-group.name   
 
