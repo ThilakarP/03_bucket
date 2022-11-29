@@ -1,11 +1,11 @@
 # Definition of IAM users and groups
 
-resource "aws_iam_user" "user01" {
-  name = "user01"
+resource "aws_iam_user" "user00001" {
+  name = "user00001"
 }
 
-resource "aws_iam_user" "user02" {
-  name = "user01"
+resource "aws_iam_user" "user00002" {
+  name = "user00002"
 }
 
 resource "aws_iam_group" "ec2-container-registry-poweruser-group" {
