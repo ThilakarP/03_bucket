@@ -1,20 +1,3 @@
-terraform {
-
-  backend "remote" {
-    organization = "akshar"
-    workspaces {
-      name = "gh-actions-api-demo"
-    }
-  }
-
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~>4.0"
-    }
-  }
-}
-
 # An example resource that does nothing.
 resource "null_resource" "example" {
   triggers = {
@@ -22,11 +5,6 @@ resource "null_resource" "example" {
   }
 }
 
-
-provider "aws" {
-  region  = "us-west-2"
-
-}
 
 resource "aws_instance" "InstanceForIAM" {
   ami           = "ami-094125af156557ca2"
@@ -98,7 +76,7 @@ data "aws_iam_policy_document" "example" {
     statement {
     effect="Allow"
     actions = [
-      #"s3:GetObject",
+      "s3:GetObject",
       "s3:PutObject"
     ]
     resources = [
