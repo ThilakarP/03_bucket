@@ -8,7 +8,7 @@ resource "aws_launch_template" "webservers" {
 
 resource "aws_autoscaling_group" "webservers" {
   availability_zones = ["us-west-2a"]
-  desired_capacity   = 1
+  desired_capacity   = 2
   max_size           = 3
   min_size           = 1
 
